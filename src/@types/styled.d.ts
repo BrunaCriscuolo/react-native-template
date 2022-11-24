@@ -1,4 +1,4 @@
-import theme from '@theme/index';
+import theme from '@themes/index';
 import 'styled-components';
 
 declare module 'styled-components' {
