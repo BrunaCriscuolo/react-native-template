@@ -20,7 +20,8 @@
       "@utils/*": ["./src/utils/*"],
       "@services/*": ["./src/services/*"],
       "@routes/*": ["./src/routes/*"],
-      "@themes/*": ["src/themes/*"]
+      "@themes/*": ["src/themes/*"],
+      "@i18n/*": ["src/i18n/*"]
     },
     "noEmit": true,
     "resolveJsonModule": true,

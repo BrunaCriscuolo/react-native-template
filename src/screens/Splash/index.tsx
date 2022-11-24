@@ -1,6 +1,7 @@
 import SplashLogo from '@assets/images/logo.png';
 import { useAuth } from '@hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
+import { sleep } from '@utils/sleep';
 import React, { useEffect } from 'react';
 import Animated, {
   Extrapolate,
@@ -15,6 +16,7 @@ import { Container, LogoImage, SplashTitle } from './styles';
 const SplashScreen = () => {
   const { user } = useAuth()
   const navigation = useNavigation();
+  const routes = navigation.getState().routeNames;
   const SplashLogoAnimation = useSharedValue(0);
 
   const SplashLogoStyle = useAnimatedStyle(() => {
@@ -45,15 +47,19 @@ const SplashScreen = () => {
   });
 
   async function startApp() {
-    if (user) {
-      return;
-    }
-    return navigation.navigate('Login');
+    try {
+      if (routes.includes('Login')) {
+        await sleep(500)
+        !user && navigation.navigate('Login');
+      } else {
+        return;
+      }
+    } catch (err) {}
   }
 
   useEffect(() => {
     SplashLogoAnimation.value = withTiming(
-      90,
+      50,
       {
         duration: 3500,
       },
@@ -67,7 +73,7 @@ const SplashScreen = () => {
   return (
     <Container>
       <Animated.View style={SplashLogoStyle}>
-        <LogoImage source={SplashLogo}  />
+        <LogoImage source={SplashLogo} />
       </Animated.View>
       <Animated.View style={SplashWordsStyle}>
         <SplashTitle>Template RN Levva</SplashTitle>

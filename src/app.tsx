@@ -1,15 +1,16 @@
 import {
-    Poppins_300Light,
-    Poppins_400Regular,
-    Poppins_500Medium,
-    Poppins_700Bold,
-    useFonts
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_700Bold,
+  useFonts
 } from '@expo-google-fonts/poppins';
 import { AuthProvider } from '@hooks/useAuth';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
 import { ThemeProvider } from 'styled-components/native';
+import './i18n/locales';
 import Routes from './routes/index';
 import theme from './themes';
 

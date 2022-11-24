@@ -1,3 +1,4 @@
+import i18n from '@i18n/locales';
 import { UserModel } from '@models/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { login } from '@services/auth.service';
@@ -51,9 +52,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const logout = () => {
-    Alert.alert('Atenção', 'Tem certeza que deseja sair?', [
+    Alert.alert('Hey', i18n.t('logoutDescription'), [
       {
-        text: 'Confirmar',
+        text: i18n.t('confirm'),
         style: 'destructive',
         onPress: () => {
           setUser(null);
@@ -61,7 +62,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         },
       },
       {
-        text: 'Cancelar',
+        text: i18n.t('cancel'),
         onPress: () => {},
       },
     ]);

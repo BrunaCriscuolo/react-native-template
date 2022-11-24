@@ -2,6 +2,7 @@ import { Button, TextInput } from '@components/form';
 import { Divider } from '@components/ui';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAuth } from '@hooks/useAuth';
+import i18n from '@i18n/locales';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
@@ -9,24 +10,10 @@ import { Container, Subtitle, Title } from './styles';
 
 const schema = Yup.object().shape({
   email: Yup.string()
-    .required('*E-mail é obrigatório')
-    .email('*E-mail é inválido')
-    .matches(/^[a-z0-9@._-]+$/g, '*E-mail inválido.'),
-  password: Yup.string()
-    .required('*Digite uma senha')
-    .min(8, '*A senha precisa conter 8 dígitos')
-    .test(
-      'password-check',
-      `*Os caracteres \\ e " não são permitidos. Selecione outro.`,
-      (password) => !password?.match(/["\\"]/)
-    )
-    .matches(/[a-z]/, '*Uma letra minuscula')
-    .matches(/[A-Z]/, '*Uma letra maiúscula')
-    .matches(/[0-9]/, '*Pelo menos 1 número')
-    .matches(
-      /[!@¢€¥#=£$°`x¿¡•*~÷%^&*()_+\-=[\]{};':\|,.<>/?]/,
-      '*Pelo menos um caractere especial'
-    ),
+    .required(i18n.t('invalidMail'))
+    .email(i18n.t('invalidMail'))
+    .matches(/^[a-z0-9@._-]+$/g, i18n.t('invalidMail')),
+  password: Yup.string().required(i18n.t('invalidPassword')),
 });
 
 const LoginScreen = () => {
@@ -49,8 +36,8 @@ const LoginScreen = () => {
 
   return (
     <Container>
-      <Title>Login</Title>
-      <Subtitle>Digite seu usuario e clique no botão</Subtitle>
+      <Title>{i18n.t('welcome')}</Title>
+      <Subtitle>{i18n.t('access')}</Subtitle>
       <Divider />
       <Controller
         name="email"
@@ -59,7 +46,7 @@ const LoginScreen = () => {
           <TextInput
             value={value}
             onChangeText={onChange}
-            placeholder="Digite um e-mail"
+            placeholder={i18n.t('placeholderMail')}
             keyboardType="email-address"
             autoCapitalize="none"
             error={errors?.email && errors?.email?.message}
@@ -73,7 +60,7 @@ const LoginScreen = () => {
           <TextInput
             value={value}
             onChangeText={onChange}
-            placeholder="Digite qualquer senha"
+            placeholder={i18n.t('placeholderPassword')}
             textContentType="oneTimeCode"
             autoCorrect={false}
             secureTextEntry
@@ -83,7 +70,7 @@ const LoginScreen = () => {
       />
       <Divider />
       <Button
-        text="Acessar"
+        text={i18n.t('login')}
         onPress={handleSubmit(handleLogin)}
         loading={isLoading}
       />
