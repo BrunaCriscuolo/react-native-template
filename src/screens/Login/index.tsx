@@ -1,12 +1,12 @@
 import { Button, TextInput } from '@components/form';
-import { Divider } from '@components/ui';
+import { Divider, Typography, ContainerPage } from '@components/ui';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAuth } from '@hooks/useAuth';
 import i18n from '@i18n/locales';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
-import { Container, Subtitle, Title } from './styles';
+import { Subtitle } from './styles';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -35,8 +35,8 @@ const LoginScreen = () => {
   };
 
   return (
-    <Container>
-      <Title>{i18n.t('welcome')}</Title>
+    <ContainerPage>
+      <Typography>{i18n.t('welcome')}</Typography>
       <Subtitle>{i18n.t('access')}</Subtitle>
       <Divider />
       <Controller
@@ -74,7 +74,7 @@ const LoginScreen = () => {
         onPress={handleSubmit(handleLogin)}
         loading={isLoading}
       />
-    </Container>
+    </ContainerPage>
   );
 };
 

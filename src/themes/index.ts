@@ -13,4 +13,14 @@ export default {
     MEDIUM: 'Poppins_500Medium',
     BOLD: 'Poppins_700Bold',
   },
+  FONTSIZE: {
+    SMALL: '12px',
+    MEDIUM: '17px',
+    LARGE: '22px',
+  },
+  LINEHEIGHT: {
+    SMALL: '22px',
+    MEDIUM: '27px',
+    LARGE: '32px',
+  }
 }
