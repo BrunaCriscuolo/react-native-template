@@ -17,7 +17,5 @@ export const SplashTitle = styled.Text.attrs(() => ({
 }))`
   font-size: 18px;
   text-align: center;
-  font-family: ${({theme}) => theme.FONTS.BOLD};
-  color: ${({theme}) => theme.COLORS.TITLE};
   margin-top: 18px;
 `;

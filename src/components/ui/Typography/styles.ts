@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 
 export const Label = styled.Text`
   line-height: ${({ lineHeight }) => lineHeight};
-  font-family: ${({ fontFamily }) => fontFamily};
   font-size: ${({ size }) => size};
   color: ${({
     color,
@@ -20,4 +19,5 @@ export const Label = styled.Text`
   margin-right: ${({ mr }) => mr};
   ${({ margin }) => margin && { margin: margin }};
   ${({ numberOfLines }) => numberOfLines && { numberOfLines: numberOfLines }};
+  ${({ fontFamily }) => fontFamily && { 'font-family': fontFamily }};
 `;

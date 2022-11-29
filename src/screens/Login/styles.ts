@@ -11,6 +11,4 @@ export const Subtitle = styled.Text.attrs(() => ({
 }))`
   font-size: 18px;
   text-align: center;
-  font-family: ${({theme}) => theme.FONTS.LIGHT};
-  color: ${({theme}) => theme.COLORS.SUBTITLE};
 `;

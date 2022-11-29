@@ -36,9 +36,9 @@ const LoginScreen = () => {
 
   return (
     <ContainerPage>
-      <Typography>{i18n.t('welcome')}</Typography>
+      {/* <Typography>{i18n.t('welcome')}</Typography> */}
       <Subtitle>{i18n.t('access')}</Subtitle>
-      <Divider />
+      {/* <Divider /> */}
       <Controller
         name="email"
         control={control}
@@ -68,7 +68,7 @@ const LoginScreen = () => {
           />
         )}
       />
-      <Divider />
+      {/* <Divider /> */}
       <Button
         text={i18n.t('login')}
         onPress={handleSubmit(handleLogin)}

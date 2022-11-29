@@ -10,7 +10,7 @@ const HomeScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Home Screen</Text>
-      <Divider />
+      {/* <Divider /> */}
       <Button text={i18n.t('logout')} onPress={logout} />
     </View>
   );

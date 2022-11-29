@@ -23,16 +23,13 @@ export const InputText = styled(TextInput)`
   margin-left: 8px;
   width: 90%;
   font-size: 16px;
-  font-family: ${({ theme }) => theme.FONTS.REGULAR};
   background-color: transparent;
 `;
 
 export const LabelError = styled.Text.attrs(() => ({
   maxFontSizeMultiplier: 1.4,
 }))`
-  color: ${({ theme }) => theme.COLORS.ALERT};
   font-size: 12px;
-  font-family: ${({ theme }) => theme.FONTS.REGULAR};
   margin-left: 4px;
   margin-top: -8px;
 `;

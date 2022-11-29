@@ -1,15 +1,11 @@
-// import { colors } from "src/styles";
+import { colors } from '@shared/static';
 
-
-// const { gray100, gray500, gray600 } = colors;
+const { primaryMain, secondaryMain } = colors;
 
 export default {
   dark: true,
   colors: {
-    fonts: {
-      primary: '#FF0000',
-      secondary: '#CCCCCC',
-      disabled: '#00000',
-    },
+    primaryMain,
+    secondaryMain
   },
 };

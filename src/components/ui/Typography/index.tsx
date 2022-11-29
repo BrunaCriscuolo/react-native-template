@@ -10,17 +10,17 @@ import {
 import { Label } from './styles';
 
 type TypographyProps = {
-  children: String;
-  color?: String; 
-  size?: String; 
-  lineHeight?: String; 
-  fontFamily?: String; 
-  margin?: String;
-  letterSpacing?: String;
-  mr?: String;
-  mt?: String;
-  ml?: String;
-  mb?: String;
+  children: string;
+  color?: string; 
+  size?: string; 
+  lineHeight?: string; 
+  fontFamily?: string; 
+  margin?: string;
+  letterSpacing?: string;
+  mr?: string;
+  mt?: string;
+  ml?: string;
+  mb?: string;
   textTransform?: TextTranformTypes;
   textAlign?: TextAlignTypes;
   textDecoration?: TextDecorationTypes;

@@ -6,7 +6,6 @@ export const Container = styled.View`
   height: 48px;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
   border-radius: 12px;
 `;
 
@@ -21,6 +20,4 @@ export const ButtonText = styled.Text.attrs(() => ({
   maxFontSizeMultiplier: 1,
 }))`
   font-size: 16px;
-  font-family: ${({ theme }) => theme.FONTS.MEDIUM};
-  color: ${({theme}) => theme.COLORS.TITLE};
 `;

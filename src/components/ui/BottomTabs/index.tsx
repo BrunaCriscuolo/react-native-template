@@ -2,9 +2,11 @@ import Feather from '@expo/vector-icons/Feather';
 import React, { useContext } from 'react';
 
 import { ThemeContext } from '@hooks/theme/context';
-
-import { ActiveLine, BottomTabsContent, Container } from './styles';
 import { tupleStrUnd } from '@shared/utils/types';
+
+import { Space } from '../Space';
+
+import { ActiveLine, BottomTabsContent } from './styles';
 
 export enum TabKeys {
   HOME = 0,
@@ -21,11 +23,10 @@ type BottomTabsProps = {
   focused: boolean;
 };
 
-
 const BottomTabs = ({ icons, focused }: BottomTabsProps) => {
   const {
     theme: {
-      colors: { fonts },
+      colors: { secondaryMain, primaryMain },
     },
   } = useContext(ThemeContext);
 
@@ -43,12 +44,16 @@ const BottomTabs = ({ icons, focused }: BottomTabsProps) => {
   }
 
   return (
-    <Container>
+    <Space>
       <BottomTabsContent>
         {focused && <ActiveLine />}
-        <Feather name={setIcon()} size={26} color={fonts.primary} />
+        <Feather
+          name={setIcon()}
+          size={26}
+          color={focused ? primaryMain : secondaryMain}
+        />
       </BottomTabsContent>
-    </Container>
+    </Space>
   );
 };
 
