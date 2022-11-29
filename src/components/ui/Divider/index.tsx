@@ -2,9 +2,9 @@ import React from 'react';
 import { Divider as D } from './styles';
 
 type DividerProps = {
-  margin?: string;
+  mg?: string;
 };
 
-const Divider = ({ margin = '20px 0' }: DividerProps) => <D margin={margin} />;
+const Divider = ({ mg = '20px 0' }: DividerProps) => <D mg={mg}/>;
 
 export { Divider };

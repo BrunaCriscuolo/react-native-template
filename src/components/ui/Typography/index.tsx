@@ -1,4 +1,5 @@
 import React from 'react';
+import { TextProps } from 'react-native';
 
 import {
   EllipsizeModeTypes,
@@ -9,12 +10,11 @@ import {
 
 import { Label } from './styles';
 
-type TypographyProps = {
-  children: string;
-  color?: string; 
-  size?: string; 
-  lineHeight?: string; 
-  fontFamily?: string; 
+interface TypographyProps extends TextProps {
+  color?: string;
+  size?: string;
+  lineHeight?: string;
+  fontFamily?: string;
   margin?: string;
   letterSpacing?: string;
   mr?: string;
@@ -25,16 +25,14 @@ type TypographyProps = {
   textAlign?: TextAlignTypes;
   textDecoration?: TextDecorationTypes;
   ellipsizeMode?: EllipsizeModeTypes;
-  numberOfLines?: Number;
-};
+}
 
 const Typography = ({
   fontFamily,
   color,
-  children,
   margin,
-  size,
-  lineHeight,
+  size = '12px',
+  lineHeight = '22px',
   mr = '0px',
   ml = '0px',
   mt = '0px',
@@ -44,7 +42,8 @@ const Typography = ({
   textDecoration = 'none',
   letterSpacing = '0px',
   ellipsizeMode = 'tail',
-  numberOfLines,
+  children,
+  ...rest
 }: TypographyProps) => (
   <Label
     fontFamily={fontFamily}
@@ -61,7 +60,7 @@ const Typography = ({
     mb={mb}
     letterSpacing={letterSpacing}
     ellipsizeMode={ellipsizeMode}
-    numberOfLines={numberOfLines}
+    {...rest}
   >
     {children}
   </Label>

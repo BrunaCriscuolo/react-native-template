@@ -6,9 +6,9 @@ export const Label = styled.Text`
   color: ${({
     color,
     theme: {
-      colors: { fonts },
+      colors: { label },
     },
-  }) => color || fonts.primary};
+  }) => color || label.default};
   text-transform: ${({ textTransform }) => textTransform};
   text-align: ${({ textAlign }) => textAlign};
   text-decoration: ${({ textDecoration }) => textDecoration};

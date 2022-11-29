@@ -4,7 +4,21 @@ export type ThemeStyleProps = {
   dark: boolean;
   colors: {
     primaryMain: string,
-    secondaryMain: string
+    secondaryMain: string,
+    label: {
+      lighter: string,
+      light: string,
+      default: string,
+      dark: string,
+      darker: string,
+    },
+    divider: {
+      lighter: string,
+      light: string,
+      default: string,
+      dark: string,
+      darker: string,
+    },
   };
 };
 

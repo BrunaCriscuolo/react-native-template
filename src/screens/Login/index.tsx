@@ -1,9 +1,10 @@
 import { Button, TextInput } from '@components/form';
-import { Divider, Typography, ContainerPage } from '@components/ui';
+import { Divider, Space, Typography } from '@components/ui';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ThemeContext } from '@hooks/theme/context';
 import { useAuth } from '@hooks/useAuth';
 import i18n from '@i18n/locales';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { Subtitle } from './styles';
@@ -17,6 +18,12 @@ const schema = Yup.object().shape({
 });
 
 const LoginScreen = () => {
+  const {
+    theme: {
+      colors: { primaryMain },
+    },
+  } = useContext(ThemeContext);
+
   const { signIn } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,10 +42,12 @@ const LoginScreen = () => {
   };
 
   return (
-    <ContainerPage>
-      {/* <Typography>{i18n.t('welcome')}</Typography> */}
+    <Space pd="30px" jc="center" fd="column" ai="center" flex={1}>
+      <Typography color={primaryMain} size="30px" lineHeight="40px">
+        {i18n.t('welcome')}
+      </Typography>
       <Subtitle>{i18n.t('access')}</Subtitle>
-      {/* <Divider /> */}
+      <Divider />
       <Controller
         name="email"
         control={control}
@@ -74,7 +83,7 @@ const LoginScreen = () => {
         onPress={handleSubmit(handleLogin)}
         loading={isLoading}
       />
-    </ContainerPage>
+    </Space>
   );
 };
 
