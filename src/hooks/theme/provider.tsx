@@ -1,17 +1,25 @@
-import React, { useState, useCallback, useEffect, ReactNode, ReactElement } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  ReactNode,
+  ReactElement,
+} from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useColorScheme } from 'react-native';
 
-import { lightTheme, darkTheme} from '../../themes';
+import { lightTheme, darkTheme } from '../../themes';
 import { ThemeStyleProps, ThemeContext } from './context';
 
 type ThemeProviderProps = {
-    children?: ReactNode;
-  };
-  
-export const CustomThemeProvider = ({ children }: ThemeProviderProps)=> {
-    const scheme = useColorScheme();
-    const [theme, setTheme] = useState<ThemeStyleProps>(lightTheme);
+  children?: ReactNode;
+};
+
+export const CustomThemeProvider = ({
+  children,
+}: ThemeProviderProps): ReactElement => {
+  const scheme = useColorScheme();
+  const [theme, setTheme] = useState<ThemeStyleProps>(lightTheme);
 
   useEffect(() => {
     const themeStorage = scheme === 'dark' ? darkTheme : lightTheme;

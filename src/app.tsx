@@ -5,14 +5,14 @@ import {
   Poppins_700Bold,
   useFonts
 } from '@expo-google-fonts/poppins';
+import { CustomThemeProvider } from '@hooks/theme/provider';
 import { AuthProvider } from '@hooks/useAuth';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
-import { ThemeProvider } from 'styled-components/native';
 import './i18n/locales';
 import Routes from './routes/index';
-import theme from './themes';
+
 
 const App = () => {
   const [LoadFonts] = useFonts({
@@ -26,11 +26,11 @@ const App = () => {
     return (
       <>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <ThemeProvider theme={theme}>
+          <CustomThemeProvider>
             <AuthProvider>
               <Routes />
             </AuthProvider>
-          </ThemeProvider>
+          </CustomThemeProvider>
         </GestureHandlerRootView>
         <Toast />
       </>
