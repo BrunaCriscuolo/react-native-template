@@ -1,8 +1,8 @@
 import styled from 'styled-components/native'
 
-export const DividerComponent = styled.View`
+export const Divider = styled.View`
   width: 100%;
   height: 1px;
-  background-color: #cecece;
-  margin: 20px 0;
+  background-color: ${({theme: {colors: fonts}}) => fonts.primary};
+  margin: ${({margin}) => margin};
 `

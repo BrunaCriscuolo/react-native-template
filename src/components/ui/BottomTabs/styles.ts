@@ -14,7 +14,7 @@ export const BottomTabsContent = styled.View`
 export const ActiveLine = styled.View`
   width: 50px;
   height: 2px;
-  background-color: ${({theme}) => theme.COLORS.PRIMARY};
+  background-color: ${({theme: {colors: fonts}}) => fonts.primary};
   margin-top: -4px;
   margin-bottom: 8px;
 `;

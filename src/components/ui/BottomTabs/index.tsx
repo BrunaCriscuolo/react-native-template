@@ -1,5 +1,9 @@
 import Feather from '@expo/vector-icons/Feather';
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { ThemeContext } from '@hooks/theme/context';
+import { tupleStrUnd } from 'src/shared/utils/types/types';
+
 import { ActiveLine, BottomTabsContent, Container } from './styles';
 
 export enum TabKeys {
@@ -9,12 +13,21 @@ export enum TabKeys {
   TICKETS = 3,
 }
 
-type Props = {
-  icons?: 'home' | 'calendar' | 'contacts' | 'news';
+const bottomTabsTypes = tupleStrUnd('home', 'calendar', 'contacts', 'news');
+type BottomTabsTypes = typeof bottomTabsTypes[number];
+
+type BottomTabsProps = {
+  icons?: BottomTabsTypes;
   focused: boolean;
 };
 
-const BottomTabs = ({ icons, focused }: Props) => {
+
+const BottomTabs = ({ icons, focused }: BottomTabsProps) => {
+  const {
+    theme: {
+      colors: { fonts },
+    },
+  } = useContext(ThemeContext);
 
   function setIcon() {
     switch (icons) {
@@ -32,13 +45,11 @@ const BottomTabs = ({ icons, focused }: Props) => {
   return (
     <Container>
       <BottomTabsContent>
-        {focused && (
-          <ActiveLine />
-        )}
-        <Feather name={setIcon()} size={26} color="#001F5B" />
+        {focused && <ActiveLine />}
+        <Feather name={setIcon()} size={26} color={fonts.primary} />
       </BottomTabsContent>
     </Container>
   );
-}
+};
 
 export { BottomTabs };

@@ -1,14 +1,14 @@
 import React, { ReactNode } from 'react';
 
-import { AlignItensVariant, JustifyContentVariant } from '@utils/types';
+import { AlignItensTypes, JustifyContentTypes } from '@utils/types';
 
 import { Container } from './styles';
 
-type Props = {
+type ContainerPageProps = {
   children: ReactNode;
-  pd?: String;
-  jc?: JustifyContentVariant;
-  ai?: AlignItensVariant;
+  pd?: string;
+  jc?: JustifyContentTypes;
+  ai?: AlignItensTypes;
 };
 
 const ContainerPage = ({
@@ -16,7 +16,7 @@ const ContainerPage = ({
   pd = '0 20px',
   jc = 'center',
   ai = 'center',
-}: Props) => (
+}: ContainerPageProps) => (
   <Container pd={pd} jc={jc} ai={ai}>
     {children}
   </Container>

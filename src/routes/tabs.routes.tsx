@@ -1,11 +1,13 @@
-import { BottomTabs } from '@components/ui';
+import React from 'react';
+import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { BottomTabs } from '@components/ui';
+
 import CalendarScreen from '@screens/Calendar';
 import ContactsScreen from '@screens/Contacts';
 import HomeScreen from '@screens/Home';
 import NewsScreen from '@screens/News';
-import React from 'react';
-import { View } from 'react-native';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 

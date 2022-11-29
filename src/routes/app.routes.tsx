@@ -1,8 +1,9 @@
+import React, {useEffect} from 'react'
+import { BackHandler } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
 import DetailsScreen from '@screens/Details'
-import React from 'react'
-import { BackHandler } from 'react-native'
 import TabsRoutes from './tabs.routes'
 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -10,7 +11,7 @@ const { Navigator, Screen } = createNativeStackNavigator()
 const AppRoutes = () => {
   const navigation = useNavigation()
 
-  React.useEffect(() => {
+  useEffect(() => {
     const backAction = () => {
       navigation.goBack()
       return true

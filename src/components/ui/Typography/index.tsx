@@ -1,30 +1,30 @@
 import React from 'react';
 
 import {
-  EllipsizeModeVariant,
-  TextAlignVariant,
-  TextDecorationVariant,
-  TextTranformVariant,
+  EllipsizeModeTypes,
+  TextAlignTypes,
+  TextDecorationTypes,
+  TextTranformTypes,
 } from '@utils/types';
 
 import { Label } from './styles';
 
-type Props = {
+type TypographyProps = {
   children: String;
-  color?: String; //Como tipar isso?
-  size?: String; //Como tipar isso?
-  lineHeight?: String; //Como tipar isso?
-  fontFamily?: String; //Como tipar isso?
+  color?: String; 
+  size?: String; 
+  lineHeight?: String; 
+  fontFamily?: String; 
   margin?: String;
   letterSpacing?: String;
   mr?: String;
   mt?: String;
   ml?: String;
   mb?: String;
-  textTransform?: TextTranformVariant;
-  textAlign?: TextAlignVariant;
-  textDecoration?: TextDecorationVariant;
-  ellipsizeMode?: EllipsizeModeVariant;
+  textTransform?: TextTranformTypes;
+  textAlign?: TextAlignTypes;
+  textDecoration?: TextDecorationTypes;
+  ellipsizeMode?: EllipsizeModeTypes;
   numberOfLines?: Number;
 };
 
@@ -45,7 +45,7 @@ const Typography = ({
   letterSpacing = '0px',
   ellipsizeMode = 'tail',
   numberOfLines,
-}: Props) => (
+}: TypographyProps) => (
   <Label
     fontFamily={fontFamily}
     color={color}
