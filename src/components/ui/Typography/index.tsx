@@ -1,19 +1,20 @@
+import React from 'react';
+
 import {
   EllipsizeModeVariant,
   TextAlignVariant,
   TextDecorationVariant,
   TextTranformVariant,
 } from '@utils/types';
-import React from 'react';
 
 import { Label } from './styles';
 
 type Props = {
   children: String;
-  color?: String; //não faço ideia de como tipar isso
-  size?: String; //não faço ideia de como tipar isso
-  lineHeight?: String; //não faço ideia de como tipar isso
-  fontFamily?: String; //não faço ideia de como tipar isso
+  color?: String; //Como tipar isso?
+  size?: String; //Como tipar isso?
+  lineHeight?: String; //Como tipar isso?
+  fontFamily?: String; //Como tipar isso?
   margin?: String;
   letterSpacing?: String;
   mr?: String;
