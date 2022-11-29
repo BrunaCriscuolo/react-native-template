@@ -1,4 +1,4 @@
-import { tupleString } from 'src/shared/utils/types/types';
+import { tupleString } from '@shared/utils/types';
 
 const justifyContentTypes = tupleString(
   'center',

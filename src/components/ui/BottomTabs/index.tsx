@@ -2,9 +2,9 @@ import Feather from '@expo/vector-icons/Feather';
 import React, { useContext } from 'react';
 
 import { ThemeContext } from '@hooks/theme/context';
-import { tupleStrUnd } from 'src/shared/utils/types/types';
 
 import { ActiveLine, BottomTabsContent, Container } from './styles';
+import { tupleStrUnd } from '@shared/utils/types';
 
 export enum TabKeys {
   HOME = 0,
