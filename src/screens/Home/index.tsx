@@ -1,6 +1,5 @@
 import { Button } from '@components/form';
-import { Divider } from '@components/ui';
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/auth/context';
 import i18n from '@i18n/locales';
 import React from 'react';
 import { Text, View } from 'react-native';

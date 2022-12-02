@@ -1,7 +1,6 @@
 import SplashLogo from '@assets/images/logo.png';
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/auth/context';
 import { useNavigation } from '@react-navigation/native';
-import { sleep } from '@utils/sleep';
 import React, { useEffect } from 'react';
 import Animated, {
   Extrapolate,
@@ -14,7 +13,7 @@ import Animated, {
 import { Container, LogoImage, SplashTitle } from './styles';
 
 const SplashScreen = () => {
-  const { user } = useAuth()
+  const { user } = useAuth();
   const navigation = useNavigation();
   const routes = navigation.getState().routeNames;
   const SplashLogoAnimation = useSharedValue(0);
@@ -46,10 +45,13 @@ const SplashScreen = () => {
     };
   });
 
+  const sleep = (milliseconds: number) =>
+    new Promise((resolve) => setTimeout(resolve, milliseconds));
+
   async function startApp() {
     try {
       if (routes.includes('Login')) {
-        await sleep(500)
+        await sleep(500);
         !user && navigation.navigate('Login');
       } else {
         return;

@@ -2,27 +2,14 @@ import i18n from '@i18n/locales';
 import { UserModel } from '@models/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { login } from '@services/auth.service';
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState
-} from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 import Toast from 'react-native-toast-message';
-
-type AuthContextData = {
-  signIn: (email: string, password: string) => Promise<void>;
-  user: UserModel | null;
-  logout: () => Promise<void> | null;
-};
+import { AuthContext } from './context';
 
 type AuthProviderProps = {
   children: ReactNode;
 };
-
-export const AuthContext = createContext({} as AuthContextData);
 
 const USER_COLLECTION = '@app.users';
 
@@ -66,7 +53,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         onPress: () => {},
       },
     ]);
-    return null
+    return null;
   };
 
   useEffect(() => {
@@ -86,10 +73,5 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   );
 };
 
-const useAuth = () => {
-  const context = useContext(AuthContext);
-  return context;
-};
-
-export { AuthProvider, useAuth };
+export { AuthProvider };
 

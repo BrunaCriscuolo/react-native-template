@@ -1,5 +1,8 @@
-type tupleStrUnd = string | undefined;
+type ITupleStrUnd = string | undefined;
 
-export const tupleStrUnd = <T extends tupleStrUnd[]>(...args: T): tupleStrUnd[] => args;
-export const tupleString = <T extends string[]>(...args: T) => args;
-export const tupleNumber = <T extends number[]>(...args: T) => args;
+const tupleStrUnd = <T extends ITupleStrUnd[]>(...args: T): ITupleStrUnd[] => args;
+const tupleString = <T extends string[]>(...args: T): string[] => args;
+const tupleNumber = <T extends number[]>(...args: T): number[] => args;
+
+export { tupleNumber, tupleStrUnd, tupleString };
+

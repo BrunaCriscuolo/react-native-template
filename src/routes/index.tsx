@@ -1,4 +1,4 @@
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/auth/context';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import AppRoutes from './app.routes';

@@ -1,10 +1,10 @@
 import { Button, TextInput } from '@components/form';
 import { Divider, Space, Typography } from '@components/ui';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useAuth } from '@hooks/auth/context';
 import { ThemeContext } from '@hooks/theme/context';
-import { useAuth } from '@hooks/useAuth';
 import i18n from '@i18n/locales';
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { Subtitle } from './styles';

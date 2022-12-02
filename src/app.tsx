@@ -5,8 +5,8 @@ import {
   Poppins_700Bold,
   useFonts
 } from '@expo-google-fonts/poppins';
+import { AuthProvider } from '@hooks/auth/provider';
 import { CustomThemeProvider } from '@hooks/theme/provider';
-import { AuthProvider } from '@hooks/useAuth';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
