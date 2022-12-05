@@ -1,4 +1,4 @@
-package com.appname.newarchitecture.modules;
+package br.com.levva.rntemplate.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

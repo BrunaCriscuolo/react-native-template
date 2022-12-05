@@ -45,14 +45,10 @@ const SplashScreen = () => {
     };
   });
 
-  const sleep = (milliseconds: number) =>
-    new Promise((resolve) => setTimeout(resolve, milliseconds));
-
   async function startApp() {
     try {
-      if (routes.includes('Login')) {
-        await sleep(500);
-        !user && navigation.navigate('Login');
+      if (routes.includes('Login') && !user) {
+        navigation.navigate('Login');
       } else {
         return;
       }

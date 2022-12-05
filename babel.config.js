@@ -19,7 +19,9 @@ module.exports = function (api) {
             '@utils': './src/utils',
             '@models': './src/models',
             '@i18n': './src/i18n',
-            '@shared': './src/shared'
+            '@clients': './src/clients',
+            '@shared': './src/shared',
+            '@useCases': './src/useCases'
           }
         }
       ],

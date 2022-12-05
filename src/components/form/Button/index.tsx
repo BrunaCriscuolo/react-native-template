@@ -1,25 +1,21 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
-import { BorderlessButtonProps } from 'react-native-gesture-handler';
-import { BorderlessBtn, ButtonText, Container } from './styles';
+import { ActivityIndicator, TouchableOpacityProps } from 'react-native';
+import { ButtonComponent, ButtonText } from './styles';
 
-interface ButtonProps extends BorderlessButtonProps {
+interface ButtonProps extends TouchableOpacityProps {
   text: string;
-  onPress: () => void;
   loading?: boolean;
 }
 
-const Button = ({ text, loading, onPress, ...rest }: ButtonProps) => {
+const Button = ({ text, loading, ...rest }: ButtonProps) => {
   return (
-    <Container>
-      <BorderlessBtn {...rest} onPress={() => onPress()}>
-        {loading ? (
-          <ActivityIndicator color={'#fff'} />
-        ) : (
-          <ButtonText>{text}</ButtonText>
-        )}
-      </BorderlessBtn>
-    </Container>
+    <ButtonComponent {...rest}>
+      {loading ? (
+        <ActivityIndicator color={'#fff'} />
+      ) : (
+        <ButtonText>{text}</ButtonText>
+      )}
+    </ButtonComponent>
   );
 };
 

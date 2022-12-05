@@ -5,7 +5,7 @@ const USER_COLLECTION = '@app.users';
 const API_URL = 'https://637ecd4e5b1cc8d6f9344d71.mockapi.io/api/v1';
 
 const api = axios.create({ baseURL: API_URL });
-
+  
 const authInterceptor = async (config: AxiosRequestConfig) => {
   try {
     const userStorage = await AsyncStorage.getItem(USER_COLLECTION);

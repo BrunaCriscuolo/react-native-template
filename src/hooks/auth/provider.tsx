@@ -1,37 +1,31 @@
 import i18n from '@i18n/locales';
 import { UserModel } from '@models/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { login } from '@services/auth.service';
+import { keys } from '@shared/static';
+import { handleSignIn } from '@useCases/auth';
+
 import React, { ReactNode, useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import Toast from 'react-native-toast-message';
+
 import { AuthContext } from './context';
 
 type AuthProviderProps = {
   children: ReactNode;
 };
 
-const USER_COLLECTION = '@app.users';
-
 const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [isLoading, setIsLoading] = useState(false)
   const [user, setUser] = useState<UserModel | null>(null);
 
-  const signIn = async (email: string, password: string) => {
-    try {
-      const response = await login({ email, password });
-      await AsyncStorage.setItem(USER_COLLECTION, JSON.stringify(response));
-      setUser(response);
-    } catch (error) {
-      Toast.show({
-        type: 'error',
-        text1: 'Atenção',
-        text2: 'E-mail e/ou senha incorretos',
-      });
-    }
+  const signIn = async (user: UserModel) => {
+    setIsLoading(true)
+    const res = await handleSignIn(user);
+    setUser(res);
+    setIsLoading(false)
   };
 
   const loadUserStorageData = async () => {
-    const storadUser = await AsyncStorage.getItem(USER_COLLECTION);
+    const storadUser = await AsyncStorage.getItem(keys.USER_COLLECTION);
     if (storadUser) {
       const userData = JSON.parse(storadUser) as UserModel;
       return setUser(userData);
@@ -44,8 +38,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         text: i18n.t('confirm'),
         style: 'destructive',
         onPress: () => {
+          AsyncStorage.clear();
           setUser(null);
-          AsyncStorage.removeItem(USER_COLLECTION);
         },
       },
       {
@@ -65,6 +59,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       value={{
         signIn,
         user,
+        isLoading,
         logout,
       }}
     >

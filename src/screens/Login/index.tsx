@@ -4,10 +4,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useAuth } from '@hooks/auth/context';
 import { ThemeContext } from '@hooks/theme/context';
 import i18n from '@i18n/locales';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { Platform } from 'react-native';
 import * as Yup from 'yup';
-import { Subtitle } from './styles';
+import appData from '../../../app.json';
+import { VersionLabel } from './styles';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -20,12 +22,11 @@ const schema = Yup.object().shape({
 const LoginScreen = () => {
   const {
     theme: {
-      colors: { primaryMain },
+      colors: { primaryMain, label },
     },
   } = useContext(ThemeContext);
 
-  const { signIn } = useAuth();
-  const [isLoading, setIsLoading] = useState(false);
+  const { signIn, isLoading } = useAuth();
 
   const {
     control,
@@ -36,9 +37,8 @@ const LoginScreen = () => {
   });
 
   const handleLogin = async (form) => {
-    setIsLoading(true);
-    await signIn(form.email, form.password);
-    setIsLoading(false);
+    const { email, password } = form;
+    await signIn({ email, password });
   };
 
   return (
@@ -46,7 +46,9 @@ const LoginScreen = () => {
       <Typography color={primaryMain} size="30px" lineHeight="40px">
         {i18n.t('welcome')}
       </Typography>
-      <Subtitle>{i18n.t('access')}</Subtitle>
+      <Typography color={label.default} size="16px" lineHeight="40px">
+        {i18n.t('access')}
+      </Typography>
       <Divider />
       <Controller
         name="email"
@@ -77,12 +79,18 @@ const LoginScreen = () => {
           />
         )}
       />
-      {/* <Divider /> */}
       <Button
         text={i18n.t('login')}
         onPress={handleSubmit(handleLogin)}
         loading={isLoading}
       />
+      <VersionLabel>
+        {`${appData.expo.version} (${
+          Platform.OS === 'ios'
+            ? appData.expo.ios.buildNumber
+            : appData.expo.android.versionCode
+        })`}
+      </VersionLabel>
     </Space>
   );
 };

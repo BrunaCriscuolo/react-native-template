@@ -1,5 +1,7 @@
 import colors from './colors';
-import images from './images';
 import icons from './icons';
+import images from './images';
+import keys from './keys';
 
-export { colors, images, icons };
+export { colors, images, icons, keys };
+

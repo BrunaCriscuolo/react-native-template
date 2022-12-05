@@ -1,4 +1,4 @@
-package com.appname.newarchitecture;
+package br.com.levva.rntemplate.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.appname.BuildConfig;
-import com.appname.newarchitecture.components.MainComponentsRegistry;
-import com.appname.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import br.com.levva.rntemplate.BuildConfig;
+import br.com.levva.rntemplate.newarchitecture.components.MainComponentsRegistry;
+import br.com.levva.rntemplate.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

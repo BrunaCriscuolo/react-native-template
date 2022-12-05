@@ -1,4 +1,4 @@
-package com.appname;
+package br.com.levva.rntemplate;
 
 import android.os.Build;
 import android.os.Bundle;

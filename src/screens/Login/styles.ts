@@ -6,9 +6,11 @@ export const LogoImage = styled.Image`
   border-radius: 60px;
 `;
 
-export const Subtitle = styled.Text.attrs(() => ({
+export const VersionLabel = styled.Text.attrs(() => ({
   maxFontSizeMultiplier: 1,
 }))`
-  font-size: 18px;
-  text-align: center;
+  font-size: 14px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 `;
