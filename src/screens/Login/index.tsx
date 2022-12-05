@@ -4,7 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useAuth } from '@hooks/auth/context';
 import { ThemeContext } from '@hooks/theme/context';
 import i18n from '@i18n/locales';
-import React, { useContext } from 'react';
+import { useColorMode } from 'native-base';
+import React, { useContext, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Platform } from 'react-native';
 import * as Yup from 'yup';
@@ -20,11 +21,9 @@ const schema = Yup.object().shape({
 });
 
 const LoginScreen = () => {
-  // const {
-  //   theme: {
-  //     colors: { primaryMain, label },
-  //   },
-  // } = useContext(ThemeContext);
+  // const { toggleTheme } = useContext(ThemeContext);
+  // const { colorMode, toggleColorMode } = useColorMode();
+
 
   const { signIn, isLoading } = useAuth();
 
@@ -86,6 +85,11 @@ const LoginScreen = () => {
         onPress={handleSubmit(handleLogin)}
         isLoading={isLoading}
       />
+      {/* <Button
+        text={'Mudar o tema'}
+        onPress={toggleTheme}
+        isLoading={isLoading}
+      /> */}
       <VersionLabel>
         {`${appData.expo.version} (${
           Platform.OS === 'ios'
