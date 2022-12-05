@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   ReactElement,
 } from 'react';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider, useColorModeValue } from 'native-base';
 import { useColorScheme } from 'react-native';
 
 import { lightTheme, darkTheme } from '../../themes';
@@ -15,6 +15,11 @@ import { ITheme } from 'native-base';
 
 type ThemeProviderProps = {
   children?: ReactNode;
+};
+
+type ColorModeProps = {
+  light: string;
+  dark: string;
 };
 
 export const CustomThemeProvider = ({

@@ -3,7 +3,7 @@ import { extendTheme } from 'native-base';
 export default extendTheme({
   colors: {
     primary: {
-      50: '#FFFFFF',
+      50: '#FFC600',
       100: '#FF0000',
       200: '#A2D4EC',
       300: '#7AC1E4',
