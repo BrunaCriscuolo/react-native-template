@@ -61,6 +61,7 @@ const LoginScreen = () => {
             keyboardType="email-address"
             autoCapitalize="none"
             error={errors?.email && errors?.email?.message}
+            variant="rounded"
           />
         )}
       />
@@ -76,13 +77,14 @@ const LoginScreen = () => {
             autoCorrect={false}
             secureTextEntry
             error={errors?.password && errors?.password?.message}
+            variant="rounded"
           />
         )}
       />
       <Button
         text={i18n.t('login')}
         onPress={handleSubmit(handleLogin)}
-        loading={isLoading}
+        isLoading={isLoading}
       />
       <VersionLabel>
         {`${appData.expo.version} (${
