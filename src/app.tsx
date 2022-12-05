@@ -9,6 +9,7 @@ import { AuthProvider } from '@hooks/auth/provider';
 import { CustomThemeProvider } from '@hooks/theme/provider';
 import { NativeBaseProvider } from 'native-base';
 import React from 'react';
+import { ActivityIndicator } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
 import './i18n/locales';
@@ -21,6 +22,10 @@ const App = () => {
     Poppins_700Bold,
     Poppins_500Medium,
   });
+
+  if (!LoadFonts) {
+    return <ActivityIndicator />;
+  }
 
   if (LoadFonts) {
     return (

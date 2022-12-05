@@ -1,25 +1,21 @@
-import React from 'react';
-import { ActivityIndicator, TextInputProps } from 'react-native';
-import { Container, InputGroup, InputText, LabelError } from './styles';
+import { ThemeContext } from '@hooks/theme/context';
+import * as NativeBase from 'native-base';
+import React, { useContext } from 'react';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
+import { Container, LabelError } from './styles';
 
-interface TextInputComponent extends TextInputProps {
-  loading?: boolean;
-  error?: any;
+interface TextInputComponent extends NativeBase.IInputProps {
+  error?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
 }
 
-const TextInput = ({ loading, error, ...rest }: TextInputComponent) => {
+const TextInput = ({ error, ...rest }: TextInputComponent) => {
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
+
   return (
     <Container>
-      <InputGroup>
-        <InputText
-          placeholderTextColor="#8B959A"
-          maxFontSizeMultiplier={1}
-          {...rest}
-        />
-        {loading && (
-          <ActivityIndicator color="#DB3EB1" style={{ marginLeft: -14 }} />
-        )}
-      </InputGroup>
+      <NativeBase.Input {...rest} />
       {!!error && <LabelError>{error}</LabelError>}
     </Container>
   );
