@@ -20,11 +20,11 @@ const schema = Yup.object().shape({
 });
 
 const LoginScreen = () => {
-  const {
-    theme: {
-      colors: { primaryMain, label },
-    },
-  } = useContext(ThemeContext);
+  // const {
+  //   theme: {
+  //     colors: { primaryMain, label },
+  //   },
+  // } = useContext(ThemeContext);
 
   const { signIn, isLoading } = useAuth();
 
@@ -43,10 +43,10 @@ const LoginScreen = () => {
 
   return (
     <Space pd="30px" jc="center" fd="column" ai="center" flex={1}>
-      <Typography color={primaryMain} size="30px" lineHeight="40px">
+      <Typography size="30px" lineHeight="40px">
         {i18n.t('welcome')}
       </Typography>
-      <Typography color={label.default} size="16px" lineHeight="40px">
+      <Typography size="16px" lineHeight="40px">
         {i18n.t('access')}
       </Typography>
       <Divider />

@@ -3,12 +3,7 @@ import styled from 'styled-components/native';
 export const Label = styled.Text`
   line-height: ${({ lineHeight }) => lineHeight};
   font-size: ${({ size }) => size};
-  color: ${({
-    color,
-    theme: {
-      colors: { label },
-    },
-  }) => color || label.default};
+  color: #000;
   text-transform: ${({ textTransform }) => textTransform};
   text-align: ${({ textAlign }) => textAlign};
   text-decoration: ${({ textDecoration }) => textDecoration};

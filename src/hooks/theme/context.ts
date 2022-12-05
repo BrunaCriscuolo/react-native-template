@@ -1,30 +1,9 @@
 import { createContext, useContext } from 'react';
-
-export type ThemeStyleProps = {
-  dark: boolean;
-  colors: {
-    primaryMain: string,
-    secondaryMain: string,
-    label: {
-      lighter: string,
-      light: string,
-      default: string,
-      dark: string,
-      darker: string,
-    },
-    divider: {
-      lighter: string,
-      light: string,
-      default: string,
-      dark: string,
-      darker: string,
-    },
-  };
-};
+import { ITheme } from 'native-base';
 
 type ThemeContextData = {
   toggleTheme(): void;
-  theme: ThemeStyleProps;
+  theme: ITheme;
 };
 
 export const ThemeContext = createContext<ThemeContextData>(

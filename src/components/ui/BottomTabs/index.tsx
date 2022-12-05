@@ -1,7 +1,6 @@
 import Feather from '@expo/vector-icons/Feather';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { ThemeContext } from '@hooks/theme/context';
 import { tupleStrUnd } from '@shared/utils/types';
 
 import { Space } from '../Space';
@@ -24,12 +23,6 @@ type BottomTabsProps = {
 };
 
 const BottomTabs = ({ icons, focused }: BottomTabsProps) => {
-  const {
-    theme: {
-      colors: { secondaryMain, primaryMain },
-    },
-  } = useContext(ThemeContext);
-
   function setIcon() {
     switch (icons) {
       case 'home':
@@ -50,7 +43,7 @@ const BottomTabs = ({ icons, focused }: BottomTabsProps) => {
         <Feather
           name={setIcon()}
           size={26}
-          color={focused ? primaryMain : secondaryMain}
+          color={focused ? '#FF0000' : '#000' }
         />
       </BottomTabsContent>
     </Space>

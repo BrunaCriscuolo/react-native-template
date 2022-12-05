@@ -1,35 +1,24 @@
-import { colors } from '@shared/static';
+import { extendTheme } from 'native-base';
 
-const {
-  primaryMain,
-  secondaryMain,
-  gray100,
-  gray300,
-  gray400,
-  gray500,
-  gray700,
-  gray800,
-  gray900,
-} = colors;
-
-export default {
-  dark: false,
+export default extendTheme({
   colors: {
-    primaryMain,
-    secondaryMain,
-    label: {
-      lighter: gray400,
-      light: gray500,
-      default: gray700,
-      dark: gray800,
-      darker: gray900,
+    primary: {
+      50: '#FFFFFF',
+      100: '#FF0000',
+      200: '#A2D4EC',
+      300: '#7AC1E4',
+      400: '#47A9DA',
+      500: '#0088CC',
+      600: '#007AB8',
+      700: '#006BA1',
+      800: '#005885',
+      900: '#003F5E',
     },
-    divider: {
-      lighter: gray100,
-      light: gray300,
-      default: gray500,
-      dark: gray700,
-      darker: gray900,
+    amber: {
+      400: '#d97706',
     },
   },
-};
+  config: {
+    initialColorMode: 'light',
+  },
+});

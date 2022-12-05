@@ -1,16 +1,15 @@
 import React, { ReactElement } from 'react';
 import { ViewProps } from 'react-native';
 
-import { Space as S } from './styles';
-
 import {
   AlignItensTypes,
   AlignSelfTypes,
   FlexDirectionTypes,
   FlexWrapTypes,
   JustifyContentTypes,
-} from '@utils/types';
+} from '@shared/utils/types/types';
 
+import { Space as S } from './styles';
 interface SpaceProps extends ViewProps {
   mb?: string;
   mt?: string;
