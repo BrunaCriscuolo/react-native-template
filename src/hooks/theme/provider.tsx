@@ -8,12 +8,9 @@ import React, {
 import {
   NativeBaseProvider,
   useColorMode,
-  ITheme,
-  StorageManager,
-  ColorMode,
+  ITheme
 } from 'native-base';
 import { useColorScheme } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { lightTheme, darkTheme } from '../../themes';
 import { ThemeContext } from './context';
@@ -30,50 +27,26 @@ export const CustomThemeProvider = ({
   const { toggleColorMode, colorMode } = useColorMode();
 
   const [theme, setTheme] = useState<ITheme>(lightTheme);
+  const [isDark, setIsDark] = useState<boolean>(false);
 
   useEffect(() => {
     const themeStorage = scheme === 'dark' ? darkTheme : lightTheme;
+    setIsDark(scheme === 'dark');
     setTheme(themeStorage);
   }, []);
 
   useEffect(() => {
-    console.log('NA FUNÇÃO', colorMode);
-  }, [colorMode]);
-
-  // const colorModeManager: StorageManager = {
-  //   get: async () => {
-  //     try {
-  //       let currentTheme = await AsyncStorage.getItem('@color-mode');
-  //       return currentTheme === 'dark' ? 'dark' : 'light';
-  //     } catch (e) {
-  //       return 'light';
-  //     }
-  //   },
-  //   set: async (value: string) => {
-  //     try {
-  //       await AsyncStorage.setItem('@color-mode', value);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   },
-  // };
-
+    setTheme(isDark ? lightTheme : darkTheme);
+  }, [isDark]);
 
   const toggleTheme = useCallback(() => {
-    // const { dark } = theme;
-    // setTheme(dark ? lightTheme : darkTheme);
-    // console.log('NA FUNÇÃO', colorMode);
-    // console.log('NA FUNÇÃO 2', scheme);
-    // console.log('NA FUNÇÃO 2', theme)
     toggleColorMode();
+    setIsDark((prev) => !prev);
   }, [theme, colorMode]);
 
   return (
     <ThemeContext.Provider value={{ toggleTheme, theme }}>
-      {/* <NativeBaseProvider theme={theme} colorModeManager={colorModeManager}> */}
-      <NativeBaseProvider theme={theme}>
-        {children}
-      </NativeBaseProvider>
+      <NativeBaseProvider theme={theme}>{children}</NativeBaseProvider>
     </ThemeContext.Provider>
   );
 };
