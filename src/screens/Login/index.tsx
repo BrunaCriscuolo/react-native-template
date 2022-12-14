@@ -1,8 +1,8 @@
 import { Button, TextInput } from '@components/form';
 import { Divider, Space, Typography } from '@components/ui';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useAuth } from '@hooks/auth/context';
-import { ThemeContext } from '@hooks/theme/context';
+import { useAuth } from '@hooks/useAuth/context';
+import { ThemeContext } from '@hooks/useTheme/context';
 import i18n from '@i18n/locales';
 import React, { useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';

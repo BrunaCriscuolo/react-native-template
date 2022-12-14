@@ -1,11 +1,21 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import { Space, Typography } from '@components/ui';
+import { useAuth } from '@hooks/useAuth/context';
+import { ThemeContext } from '@hooks/useTheme/context';
+import React, { useContext } from 'react';
 
 const CalendarScreen = () => {
+  const { logout } = useAuth();
+  const { theme } = useContext(ThemeContext);
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Calendar Screen</Text>
-    </View>
+    <Space pd="30px" jc="center" fd="column" ai="center" flex={1}>
+      <Typography
+        color={theme.colors.label.default}
+        size="26px"
+        lineHeight="40px"
+      >
+        Calendar Screen
+      </Typography>
+    </Space>
   );
 };
 

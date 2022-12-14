@@ -1,6 +1,6 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { View } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { BottomTabs } from '@components/ui';
 
@@ -17,7 +17,7 @@ const TabsRoutes = () => {
       <Navigator
         initialRouteName="Home"
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
           tabBarShowLabel: false,
           tabBarStyle: {
             height: 70,

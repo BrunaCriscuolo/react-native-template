@@ -1,4 +1,4 @@
-import { ThemeContext } from '@hooks/theme/context';
+import { ThemeContext } from '@hooks/useTheme/context';
 import * as NativeBase from 'native-base';
 import React, { useContext } from 'react';
 import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
