@@ -20,13 +20,10 @@ const schema = Yup.object().shape({
 });
 
 const LoginScreen = () => {
+  
   const {
-    theme: {
-      colors: { primaryMain, label },
-    },
+    theme: { colors: { primaryMain, label } }
   } = useContext(ThemeContext);
-
-  const { signIn, isLoading } = useAuth();
 
   const {
     control,
@@ -35,6 +32,8 @@ const LoginScreen = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  
+  const { signIn, isLoading } = useAuth();
 
   const handleLogin = async (form) => {
     const { email, password } = form;
