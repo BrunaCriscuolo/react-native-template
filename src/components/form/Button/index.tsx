@@ -1,4 +1,4 @@
-import { ThemeContext } from '@hooks/theme/context';
+import { ThemeContext } from '@hooks/useTheme/context';
 import * as NativeBase from 'native-base';
 import React, { useContext } from 'react';
 import { Container } from './styles';
@@ -21,7 +21,7 @@ const Button = ({ text, ...rest }: ButtonProps) => {
         }}
         // borderWidth={1}
         // borderStyle={'solid'}
-        borderRadius={12}
+        borderRadius={22}
         borderColor={colors.primaryMain}
         bgColor={colors.primaryMain}
       >

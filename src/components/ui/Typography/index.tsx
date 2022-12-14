@@ -2,11 +2,10 @@ import React from 'react';
 import { TextProps } from 'react-native';
 
 import {
-  EllipsizeModeTypes,
   TextAlignTypes,
   TextDecorationTypes,
-  TextTranformTypes,
-} from '@utils/types';
+  TextTranformTypes
+} from '@shared/utils/types/types';
 
 import { Label } from './styles';
 
@@ -24,7 +23,7 @@ interface TypographyProps extends TextProps {
   textTransform?: TextTranformTypes;
   textAlign?: TextAlignTypes;
   textDecoration?: TextDecorationTypes;
-  ellipsizeMode?: EllipsizeModeTypes;
+  ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip';
 }
 
 const Typography = ({
@@ -67,3 +66,4 @@ const Typography = ({
 );
 
 export { Typography };
+

@@ -1,7 +1,7 @@
 import Feather from '@expo/vector-icons/Feather';
 import React, { useContext } from 'react';
 
-import { ThemeContext } from '@hooks/theme/context';
+import { ThemeContext } from '@hooks/useTheme/context';
 import { tupleStrUnd } from '@shared/utils/types';
 
 import { Space } from '../Space';
@@ -58,3 +58,4 @@ const BottomTabs = ({ icons, focused }: BottomTabsProps) => {
 };
 
 export { BottomTabs };
+

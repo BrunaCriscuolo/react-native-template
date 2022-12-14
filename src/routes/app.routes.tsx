@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react'
-import { BackHandler } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React, { useEffect } from 'react'
+import { BackHandler } from 'react-native'
 
 import DetailsScreen from '@screens/Details'
 import TabsRoutes from './tabs.routes'

@@ -8,8 +8,8 @@ import {
   AlignSelfTypes,
   FlexDirectionTypes,
   FlexWrapTypes,
-  JustifyContentTypes,
-} from '@utils/types';
+  JustifyContentTypes
+} from '@shared/utils/types/types';
 
 interface SpaceProps extends ViewProps {
   mb?: string;

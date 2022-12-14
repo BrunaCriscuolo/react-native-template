@@ -1,8 +1,8 @@
 import { Button, TextInput } from '@components/form';
 import { Divider, Space, Typography } from '@components/ui';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useAuth } from '@hooks/auth/context';
-import { ThemeContext } from '@hooks/theme/context';
+import { useAuth } from '@hooks/useAuth/context';
+import { ThemeContext } from '@hooks/useTheme/context';
 import i18n from '@i18n/locales';
 import React, { useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -20,13 +20,10 @@ const schema = Yup.object().shape({
 });
 
 const LoginScreen = () => {
+  
   const {
-    theme: {
-      colors: { primaryMain, label },
-    },
+    theme: { colors: { primaryMain, label } }
   } = useContext(ThemeContext);
-
-  const { signIn, isLoading } = useAuth();
 
   const {
     control,
@@ -35,6 +32,8 @@ const LoginScreen = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  
+  const { signIn, isLoading } = useAuth();
 
   const handleLogin = async (form) => {
     const { email, password } = form;
@@ -81,6 +80,7 @@ const LoginScreen = () => {
           />
         )}
       />
+      <Divider />
       <Button
         text={i18n.t('login')}
         onPress={handleSubmit(handleLogin)}

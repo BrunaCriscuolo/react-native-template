@@ -1,8 +1,9 @@
 import i18n from '@i18n/locales';
-import { UserModel } from '@models/user';
+import { UserModel } from '@models/userModel';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { keys } from '@shared/static';
-import { handleSignIn } from '@useCases/auth';
+import AuthUseCase from '@useCases/authUseCase';
+ 
 
 import React, { ReactNode, useEffect, useState } from 'react';
 import { Alert } from 'react-native';
@@ -19,8 +20,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signIn = async (user: UserModel) => {
     setIsLoading(true)
-    const res = await handleSignIn(user);
-    setUser(res);
+    const userInfo = await AuthUseCase.execute(user);
+    setUser(userInfo);
     setIsLoading(false)
   };
 

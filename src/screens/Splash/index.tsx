@@ -1,5 +1,5 @@
 import SplashLogo from '@assets/images/logo.png';
-import { useAuth } from '@hooks/auth/context';
+import { useAuth } from '@hooks/useAuth/context';
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import Animated, {

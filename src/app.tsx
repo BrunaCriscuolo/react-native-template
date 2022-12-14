@@ -5,8 +5,8 @@ import {
   Poppins_700Bold,
   useFonts
 } from '@expo-google-fonts/poppins';
-import { AuthProvider } from '@hooks/auth/provider';
-import { CustomThemeProvider } from '@hooks/theme/provider';
+import { AuthProvider } from '@hooks/useAuth/provider';
+import { CustomThemeProvider } from '@hooks/useTheme/provider';
 import { NativeBaseProvider } from 'native-base';
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
