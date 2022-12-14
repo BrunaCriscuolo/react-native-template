@@ -81,6 +81,7 @@ const LoginScreen = () => {
           />
         )}
       />
+      <Divider />
       <Button
         text={i18n.t('login')}
         onPress={handleSubmit(handleLogin)}

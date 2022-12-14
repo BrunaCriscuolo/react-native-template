@@ -21,7 +21,7 @@ const Button = ({ text, ...rest }: ButtonProps) => {
         }}
         // borderWidth={1}
         // borderStyle={'solid'}
-        borderRadius={12}
+        borderRadius={22}
         borderColor={colors.primaryMain}
         bgColor={colors.primaryMain}
       >
